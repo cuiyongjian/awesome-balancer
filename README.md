@@ -1,10 +1,10 @@
 # awesome-balancer
 
-[![npm status](http://img.shields.io/npm/v/loadbalance.svg?style=flat-square)](https://www.npmjs.org/package/loadbalance)
+<!-- [![npm status](http://img.shields.io/npm/v/loadbalance.svg?style=flat-square)](https://www.npmjs.org/package/loadbalance) -->
 
 awesome-balancer is a load-balance engine included various strategy. It is a collection of load balancing algorithm implementation, which is focus on providing reusable module for other program.
 
-awesome-balancer是包含很多负载均衡策略的引擎，它实现了很多负载均衡的算法，致力于为其他软件程序提供可复用的负载均衡模块。
+awesome-balancer 是一个包含了多种负载均衡策略的核心引擎，它实现了很多负载均衡的算法，致力于为其他软件程序提供可复用的负载均衡模块。
 
 ## Get Started
 With [node](https://nodejs.org) and [npm](https://npmjs.org) in your system, and in your project to execute:
@@ -116,7 +116,7 @@ The contract of pick() states that it MUST return something each invocation.
 
 ## misc
 
-This module shares some functionality with [pool](https://github.com/coopernurse/node-pool) module. It is worth taking a look at it if you are looking for something more high level.
+This module is created on the basis of [node-balance](https://github.com/kessler/node-loadbalance). awesome-balancer extends from it and enhance it.
 
 This module is heavily inspired by this [article about load balance algorithms](https://devcentral.f5.com/articles/intro-to-load-balancing-for-developers-ndash-the-algorithms)
 
