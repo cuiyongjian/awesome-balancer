@@ -1,0 +1,27 @@
+{
+  "name": "awesome-balancer",
+  "version": "1.0.0",
+  "description": "a load-balance engine include various method",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuiyongjian/awesome-balancer.git"
+  },
+  "keywords": [
+    "load",
+    "balance",
+    "load-balance"
+  ],
+  "author": "cuiyongjian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuiyongjian/awesome-balancer/issues"
+  },
+  "homepage": "https://github.com/cuiyongjian/awesome-balancer#readme",
+  "dependencies": {
+    "loadbalance": "^0.2.7"
+  }
+}
