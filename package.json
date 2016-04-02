@@ -1,27 +1,33 @@
 {
   "name": "awesome-balancer",
   "version": "1.0.0",
-  "description": "a load-balance engine include various method",
+  "description": "a load-balance engine include various strategy",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test/index.js"
+    "test": "mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cuiyongjian/awesome-balancer.git"
+    "url": "git+ssh://git@github.com/cuiyongjian/awesome-balancer.git"
   },
   "keywords": [
     "load",
     "balance",
-    "load-balance"
+    "load-balance",
+    "loadbalance",
+    "algorithms",
+    "engine"
   ],
-  "author": "cuiyongjian",
-  "license": "ISC",
+  "author": "sheldon",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cuiyongjian/awesome-balancer/issues"
   },
   "homepage": "https://github.com/cuiyongjian/awesome-balancer#readme",
   "dependencies": {
     "loadbalance": "^0.2.7"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
   }
 }
