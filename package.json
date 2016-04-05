@@ -25,10 +25,11 @@
   },
   "homepage": "https://github.com/cuiyongjian/awesome-balancer#readme",
   "dependencies": {
-    "loadbalance": "^0.2.7",
+    "debug": "^2.2.0",
     "merge": "^1.2.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "mocha": "^2.4.5"
   }
 }
