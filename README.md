@@ -9,7 +9,7 @@ awesome-balancer 是一个包含了多种负载均衡策略的核心引擎，它
 ## Get Started
 With [node](https://nodejs.org) and [npm](https://npmjs.org) in your system, and in your project to execute:
 ```bash
-`npm install awesome-balancer --save`
+npm install awesome-balancer --save
 ```
 add to your program
 ```js
