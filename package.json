@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/cuiyongjian/awesome-balancer#readme",
   "dependencies": {
-    "loadbalance": "^0.2.7"
+    "loadbalance": "^0.2.7",
+    "merge": "^1.2.0"
   },
   "devDependencies": {
     "mocha": "^2.4.5"
