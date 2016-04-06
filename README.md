@@ -6,7 +6,7 @@ awesome-balancer is a load-balance engine included various strategy. It is a col
 
 awesome-balancer 是一个包含了多种负载均衡策略的核心引擎，它实现了很多负载均衡的算法，致力于为其他软件程序提供可复用的负载均衡模块。
 
-该负载均衡引擎可支持类似于`反向代理`、`作业调度`的场景。其中的`DynamicWeightedEngine`动态权重引擎依赖于<resource-evaluation>这个性能评价模块。
+该负载均衡引擎可支持类似于`反向代理`、`作业调度`的场景。其中的`DynamicWeightedEngine`动态权重引擎依赖于<resource-meter>这个性能评价模块。
 
 ## Get Started
 With [node](https://nodejs.org) and [npm](https://npmjs.org) in your system, and in your project to execute:
