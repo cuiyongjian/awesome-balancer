@@ -6,7 +6,7 @@ awesome-balancer is a load-balance engine included various strategy. It is a col
 
 awesome-balancer 是一个包含了多种负载均衡策略的核心引擎，它实现了很多负载均衡的算法，致力于为其他软件程序提供可复用的负载均衡模块。
 
-该负载均衡引擎可支持类似于`反向代理`、`作业调度`的场景。其中的`DynamicWeightedEngine`动态权重引擎依赖于<resource-meter>这个性能评价模块。
+该负载均衡引擎可支持类似于`反向代理`、`作业调度`的场景。其中的`DynamicWeightedEngine`动态权重引擎依赖于[resource-meter](https://github.com/cuiyongjian/resource-meter)这个性能评价模块。
 
 ## Get Started
 With [node](https://nodejs.org) and [npm](https://npmjs.org) in your system, and in your project to execute:
@@ -15,15 +15,14 @@ npm install awesome-balancer --save
 ```
 add to your program
 ```js
-var loadbalance = require('awesome-balancer')
+var lb = require('awesome-balancer')
 ```
 
 ## Usage
 To use, instantiate an engine or call a factory method with a pool. Then call pick(), which will return the selected object, calling pick() repeatedly will yield the same or a different object from the pool, depending on the algorithm which powers that engine.
 
 ```javascript
-var loadbalance = require('loadbalance')
-var engine = loadbalance.random(['a', 'b', 'c'])
+var engine = lb.random(['a', 'b', 'c'])
 var pick = engine.pick()
 ```
 
@@ -36,14 +35,14 @@ Pick is called without any arguments and will always return an object which is a
 The random engine picks an object from the pool at random, each time pick() is called.
 
 ```javascript
-var loadbalance = require('loadbalance')
-var engine = loadbalance.random(['a', 'b', 'c'])
+var lb = require('loadbalance')
+var engine = lb.random(['a', 'b', 'c'])
 var pick = engine.pick()
 ```
 
-#### new RandomEngine(pool, seed)
+You can also use as a class: new RandomEngine(pool, seed)
 ```javascript
-var engine = new loadbalance.RandomEngine(pool)
+var engine = new lb.RandomEngine(pool)
 ```
 Pool - an objects to pick from, eg ```[1,2,3]```
 Seed - an optional seed that will be used to recreate a random sequence of selections
@@ -52,16 +51,15 @@ Seed - an optional seed that will be used to recreate a random sequence of selec
 An engine that picks objects from its pool using Round Robin algorithm (doh!)
 
 ```javascript
-var loadbalance = require('loadbalance')
-var engine = loadbalance.roundRobin(['a', 'b', 'c'])
+var engine = lb.roundRobin(['a', 'b', 'c'])
 var pick = engine.pick()
 ```
 
 The roundRobin() factory method can be used to obtain both RoundRobinEngine and WeightedRoundRobinEngine. The decision is based on the contents of the pool.
 
-#### new RoundRobinEngine(pool)
+You can also use as a class: new RoundRobinEngine(pool)
 ```javascript
-var engine = new loadbalance.RoundRobinEngine(pool)
+var engine = new lb.RoundRobinEngine(pool)
 ```
 Pool - objects to pick from, eg ```[1,2,3]```
 
@@ -69,21 +67,25 @@ Pool - objects to pick from, eg ```[1,2,3]```
 Same as round robin engine, only members of the pool can have weights.
 
 ```javascript
-var loadbalance = require('loadbalance')
-var engine = loadbalance.roundRobin([{ object: 'a', weight: 2 }, {object: 'b', weight: 1 }])
+var engine = lb.roundRobin([{ object: 'a', weight: 2 }, {object: 'b', weight: 1 }])
 var pick = engine.pick()
 ```
 
 call pick six times using the above engine will yield: 'a', 'a', 'b', 'a', 'a', 'b'
 
-#### new WeightedRoundRobinEngine(pool)
+You can also use as a class: new WeightedRoundRobinEngine(pool)
 ```javascript
-var engine = new loadbalance.WeightedRoundRobinEngine(pool)
+var engine = new lb.WeightedRoundRobinEngine(pool)
 ```
 Pool - objects to pick from. Each object is of the form:
 ```javascript
 var object1 = {
     object: 'something',
+    weight: 2
+}
+或
+var object1 = {
+    value: 'something',
     weight: 2
 }
 ```
@@ -95,10 +97,26 @@ Object (you can also use value, its an alias property) can be anything you want,
 Not yet implemented
 
 ### DynamicWeightedEngine
-working...
+Familiar with the WeightedRoundRobinEngine, but its weight of pool will be change dynamic each cycle.
+
+This algorithm use <resource-meter> project to make the resource weight dynamic.
 
 ### BusinessDivisionEngine
-working...
+An engine that divide the pool members by its type, and in each type picking the object using a specify engine.
+
+```javascript
+var engine = lb.businessDivision([{type: 'one', value: 'a'}, {type: 'two', value: 'b'}], 'RandomEngine')
+var pick = engine.pick()
+```
+You can also use as a class: new RoundRobinEngine(pool)
+```javascript
+var engine = new lb.BusinessDivision(pool)
+```
+
+The BusinessDivisionEngine should pass the second parameter--'engineName'. For example, if you want to use 'RandomEngine' in each business type, you should create the engine like this:
+```
+var engine = new lb.BusinessDivision(pool, 'RandomEngine')
+```
 
 ### Extensibility
 Here is an example of a custom engine:
@@ -118,6 +136,9 @@ MyEngine.prototype.pick = function () {
 
 ```
 The contract of pick() states that it MUST return something each invocation.
+
+## test
+   `npm test`
 
 ## misc
 

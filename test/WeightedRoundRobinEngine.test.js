@@ -20,9 +20,51 @@ describe('WeightedRoundRobinEngine', function () {
             var mod = i % expected.length;
             var pickItem = engine.pick();
             expect(pool).to.include(pickItem);
-            expect(pickItem).to.equal(expected(mod));
+            expect(pickItem).to.equal(expected[mod]);
         }
     });
+
+    it('entries must contain an "object" property', function () {
+        var poolWithWeights = [{
+            weight: 1
+        }]
+
+        expect(function () {
+            var engine = new WeightedRoundRobinEngine(poolWithWeights)
+        }).to.throw('请在第' + 0 + '个元素中添加object或value属性')
+    });
+
+    it('entries "value" property is an alias to object property', function () {
+        var poolWithWeights = [{
+            weight: 1,
+            value: 'a'
+        }]
+
+        expect(function () {
+            var engine = new WeightedRoundRobinEngine(poolWithWeights)
+        }).not.to.throw()
+    });
+
+    it('weights must be integers', function () {
+        var poolWithWeights = [{
+            weight: 0.2,
+            object: 'a'
+        }]
+
+        expect(function () {
+            var engine = new WeightedRoundRobinEngine(poolWithWeights)
+        }).to.throw('weight must greater than zero and tobe a integer')
+    });
+    it('weights must greater than zero', function () {
+        var poolWithWeights = [{
+            weight: 0,
+            object: 'a'
+        }]
+
+        expect(function () {
+            var engine = new WeightedRoundRobinEngine(poolWithWeights)
+        }).to.throw('weight must greater than zero and tobe a integer')
+    })
 
     it('constructor is also a factory method', function () {
         var pool = [{
