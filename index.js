@@ -1,11 +1,17 @@
-var AbstractEngine = require('./lib/AbstractEngine');
-var RandomEngine = module.exports.RandomEngine = require('./lib/RandomEngine');
-var WeightedRoundRobin = module.exports.WeightedRoundRobin = require('./lib/WeightedRoundRobinEngine');
-var RoundRobin = module.exports.RoundRobin = require('./lib/RoundRobinEngine');
-
-// 随机
+// 抽象构造器
+var AbstractEngine = module.exports.AbstractEngine = require('./lib/AbstractEngine');
+// 随机函数API和随机构造器
 module.exports.random = module.exports.RandomEngine = require('./lib/RandomEngine');
-// 轮询
+// 轮询构造器
+var WeightedRoundRobinEngine = module.exports.WeightedRoundRobinEngine = require('./lib/WeightedRoundRobinEngine');
+var RoundRobinEngine = module.exports.RoundRobinEngine = require('./lib/RoundRobinEngine');
+// 动态函数和动态构造器
+module.exports.dynamicWeightedEngine = module.exports.DynamicWeightedEngine = require('./lib/DynamicWeightedEngine');
+// 业务区分函数和业务区分构造器
+module.exports.businessDivision = module.exports.BusinessDivisionEngin = require('./lib/BusinessDivisionEngin');
+
+
+// 轮询函数API
 module.exports.roundRobin = function (pool) {
     if (pool[0].weight) {
         return new WeightedRoundRobin(pool);

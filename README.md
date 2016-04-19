@@ -99,7 +99,19 @@ Not yet implemented
 ### DynamicWeightedEngine
 Familiar with the WeightedRoundRobinEngine, but its weight of pool will be change dynamic each cycle.
 
-This algorithm use <resource-meter> project to make the resource weight dynamic.
+This algorithm use [resource-meter](https://github.com/cuiyongjian/resource-meter) project to make the resource weight dynamic.
+
+```javascript
+var pool = [{value: 'xxx', weight: 1}, {type: 'two', weight: 1}];
+var engine = lb.dynamicWeighted(pool)
+var pick = engine.pick()
+```
+You can also use as a class: new RoundRobinEngine(pool)
+```javascript
+var engine = new lb.BusinessDivision(pool)
+```
+
+As you see above, you can pass the nodes with a initial property 'weight', but , some time later, the weight will be change dynamically by the nodes' runtime resource. [get info by resource-meter]
 
 ### BusinessDivisionEngine
 An engine that divide the pool members by its type, and in each type picking the object using a specify engine.

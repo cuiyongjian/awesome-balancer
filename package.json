@@ -27,7 +27,8 @@
   "dependencies": {
     "debug": "^2.2.0",
     "merge": "^1.2.0",
-    "random-js": "^1.0.8"
+    "random-js": "^1.0.8",
+    "resource-meter": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
