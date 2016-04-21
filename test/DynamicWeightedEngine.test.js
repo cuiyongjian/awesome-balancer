@@ -1,4 +1,5 @@
-var d = require('./DynamicWeightedEngine');
+var d = require('../lib/DynamicWeightedEngine');
+console.log('debug');
 
 var dd = [{
     value: 'old.cuiyongjian.com',
@@ -13,6 +14,5 @@ var a = new d(dd);
 
 setInterval(function () {
     var rel = a.pick();
-    console.log('pick成功啦');
-    console.log(rel);
+    debug('pick成功啦', rel);
 }, 4000);
