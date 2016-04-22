@@ -1,4 +1,4 @@
-var d = require('../lib/DynamicWeightedEngine');
+var DynamicWeightedEngine = require('../lib/DynamicWeightedEngine');
 var debug = require('debug')('awesomeBalancer:dynamic');
 
 var data = [{
