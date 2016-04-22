@@ -8,7 +8,7 @@ var RoundRobinEngine = module.exports.RoundRobinEngine = require('./lib/RoundRob
 // 动态函数和动态构造器
 module.exports.dynamicWeightedEngine = module.exports.DynamicWeightedEngine = require('./lib/DynamicWeightedEngine');
 // 业务区分函数和业务区分构造器
-module.exports.businessDivision = module.exports.BusinessDivisionEngin = require('./lib/BusinessDivisionEngin');
+module.exports.businessDivision = module.exports.BusinessDivisionEngin = require('./lib/BusinessDivisionEngine');
 
 
 // 轮询函数API
