@@ -1,16 +1,37 @@
-var d = require('../lib/DynamicWeightedEngine');
-console.log('debug');
+var DynamicWeightedEngine = require('../lib/DynamicWeightedEngine');
+var debug = require('debug')('awesomeBalancer:dynamic');
 
-var dd = [{
-    value: 'old.cuiyongjian.com',
+var data = [{
+    value: '192.168.1.203',
     weight: 1
 },
 {
-    value: 'linux.cuiyongjian.com',
+    value: '192.168.1.204',
+    weight: 2
+},
+{
+    value: '192.168.1.205',
+    weight: 2
+},
+{
+    value: '192.168.1.206',
+    weight: 2
+},
+{
+    value: '192.168.1.207',
+    weight: 2
+},
+{
+    value: '192.168.1.208',
+    weight: 2
+},
+{
+    value: '192.168.1.211',
     weight: 2
 }];
 
-var a = new d(dd);
+
+var a = new DynamicWeightedEngine(data);
 
 setInterval(function () {
     var rel = a.pick();
