@@ -1,4 +1,4 @@
-var DynamicWeightedEngine = require('../lib/DynamicWeightedEngine');
+var d = require('../lib/DynamicWeightedEngine');
 var debug = require('debug')('awesomeBalancer:dynamic');
 
 var data = [{
@@ -7,27 +7,27 @@ var data = [{
 },
 {
     value: '192.168.1.204',
-    weight: 2
+    weight: 1
 },
 {
     value: '192.168.1.205',
-    weight: 2
+    weight: 1
 },
 {
     value: '192.168.1.206',
-    weight: 2
+    weight: 1
 },
 {
     value: '192.168.1.207',
-    weight: 2
+    weight: 1
 },
 {
     value: '192.168.1.208',
-    weight: 2
+    weight: 1
 },
 {
     value: '192.168.1.211',
-    weight: 2
+    weight: 1
 }];
 
 
