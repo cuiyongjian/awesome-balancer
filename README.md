@@ -99,10 +99,11 @@ Not yet implemented
 ### DynamicWeightedEngine
 Familiar with the WeightedRoundRobinEngine, but its weight of pool will be change dynamic each cycle.
 
-This algorithm use [resource-meter](https://github.com/cuiyongjian/resource-meter) project to make the resource weight dynamic.
+This algorithm use [resource-meter](https://github.com/cuiyongjian/resource-meter) project to make the resource weight dynamic. So, first you should start the `resource-meter probe` on your clusters' nodes.\(See [probe mode](https://github.com/cuiyongjian/resource-meter#探针模式) to konw how start the `resource-meter probe` \)
+And then, on the master node, you can use DynamicWeightedEngine like this:
 
 ```javascript
-var pool = [{value: 'xxx', weight: 1}, {type: 'two', weight: 1}];
+var pool = [{value: 'xxx', weight: 1}, {value: 'xxx', weight: 1}];
 var engine = lb.dynamicWeighted(pool)
 var pick = engine.pick()
 ```
@@ -111,7 +112,7 @@ You can also use as a class: new RoundRobinEngine(pool)
 var engine = new lb.BusinessDivision(pool)
 ```
 
-As you see above, you can pass the nodes with a initial property 'weight', but , some time later, the weight will be change dynamically by the nodes' runtime resource. [get info by resource-meter]
+As you see above, you can pass the nodes with a initial property 'weight' \(for example weight:1\), but , some time later, the weight will be change dynamically by the nodes' runtime resource. [get info by resource-meter probe]
 
 ### BusinessDivisionEngine
 An engine that divide the pool members by its type, and in each type picking the object using a specify engine.
