@@ -152,6 +152,8 @@ The contract of pick() states that it MUST return something each invocation.
 ## test
    `npm test`
 
+Please specify the `DEBUG` environment variable to be "awesomeBalancer:*", to display the debug messages.
+
 ## misc
 
 This module is created on the basis of [node-balance](https://github.com/kessler/node-loadbalance). awesome-balancer extends from it and enhance it.
