@@ -124,10 +124,11 @@ You can also use as a class: new RoundRobinEngine(pool)
 var engine = new lb.BusinessDivision(pool)
 ```
 
-The BusinessDivisionEngine should pass the second parameter--'engineName'. For example, if you want to use 'RandomEngine' in each business type, you should create the engine like this:
+The BusinessDivisionEngine can pass the second parameter--'engineName'. For example, if you want to use 'RandomEngine' in each business type, you should create the engine like this:
 ```
 var engine = new lb.BusinessDivision(pool, 'RandomEngine')
 ```
+Attention，you can not pass the engine "BusinessDivisionEngine"，because we do not support recursion.
 
 When you use pick(), you should pass the 'type' paramerters like this:
 ```
