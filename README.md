@@ -93,8 +93,6 @@ var object1 = {
 Weight should always be an integer which is greater than zero.
 Object (you can also use value, its an alias property) can be anything you want, just like other pools. It cannot, however, be null or undefined at the time the pool is created.
 
-### PriorityEngine
-Not yet implemented
 
 ### DynamicWeightedEngine
 Familiar with the WeightedRoundRobinEngine, but its weight of pool will be change dynamic each cycle.
@@ -112,7 +110,7 @@ You can also use as a class: new RoundRobinEngine(pool)
 var engine = new lb.BusinessDivision(pool)
 ```
 
-As you see above, you can pass the nodes with a initial property 'weight' \(for example weight:1\), but , some time later, the weight will be change dynamically by the nodes' runtime resource. [get info by resource-meter probe]
+As you see above, you should pass the nodes with a initial property 'weight' \(for example weight:1\), but , some time later, the weight will be change dynamically by the nodes' runtime resource. [get info by resource-meter probe]. Even so, you still should pass the weight property at first time.
 
 ### BusinessDivisionEngine
 An engine that divide the pool members by its type, and in each type picking the object using a specify engine.
@@ -130,6 +128,12 @@ The BusinessDivisionEngine should pass the second parameter--'engineName'. For e
 ```
 var engine = new lb.BusinessDivision(pool, 'RandomEngine')
 ```
+
+
+### PriorityEngine
+Not yet implemented
+
+
 
 ### Extensibility
 Here is an example of a custom engine:
