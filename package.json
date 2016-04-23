@@ -1,6 +1,6 @@
 {
   "name": "awesome-balancer",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "a load-balance engine include various strategy",
   "main": "index.js",
   "scripts": {
