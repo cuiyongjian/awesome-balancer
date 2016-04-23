@@ -129,6 +129,11 @@ The BusinessDivisionEngine should pass the second parameter--'engineName'. For e
 var engine = new lb.BusinessDivision(pool, 'RandomEngine')
 ```
 
+When you use pick(), you should pass the 'type' paramerters like this:
+```
+engine.pick('type')
+```
+The 'type' should as same as the 'type' you set the pool.
 
 ### PriorityEngine
 Not yet implemented
